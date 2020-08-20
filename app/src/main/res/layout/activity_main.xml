@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:layout_margin="15dp"
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -23,11 +23,13 @@
             android:hint="Nombre Completo" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="310dp"
-        android:layout_height="289dp"
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
@@ -38,13 +40,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView">
+        app:layout_constraintTop_toBottomOf="@+id/datePicker">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tilTelephone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefono" />
+            android:hint="Telefono"
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -83,7 +86,8 @@
         android:layout_height="wrap_content"
         android:text="Siguiente"
         android:theme="@style/RaiseButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText tilEmail;
     private TextInputEditText tilDescription;
     private DatePicker datePicker;
-    private Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,32 +29,32 @@ public class MainActivity extends AppCompatActivity {
         tilEmail = findViewById(R.id.tilEmail);
         tilDescription = findViewById(R.id.tilDescription);
         datePicker = findViewById(R.id.datePicker);
-        btnNext = findViewById(R.id.btnNext);
+        Button btnNext = findViewById(R.id.btnNext);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ConfirmActivity.class);
-                intent.putExtra("name", tilName.getText().toString());
-                intent.putExtra("tellphone", tilTelephone.getText().toString());
-                intent.putExtra("email", tilEmail.getText().toString());
-                intent.putExtra("description", tilDescription.getText().toString());
-                String dateFormat = datePicker.getDayOfMonth() +"/"
-                        +datePicker.getMonth()+"/"
-                        +datePicker.getYear();
+                intent.putExtra("name", Objects.requireNonNull(tilName.getText()).toString());
+                intent.putExtra("tellphone", Objects.requireNonNull(tilTelephone.getText()).toString());
+                intent.putExtra("email", Objects.requireNonNull(tilEmail.getText()).toString());
+                intent.putExtra("description", Objects.requireNonNull(tilDescription.getText()).toString());
+                String dateFormat = datePicker.getDayOfMonth() + "/"
+                        + datePicker.getMonth() + "/"
+                        + datePicker.getYear();
                 intent.putExtra("date", dateFormat);
                 startActivity(intent);
             }
         });
 
         Bundle extras = getIntent().getExtras();
-        if(extras !=null){
+        if (extras != null) {
 
-        String name = Objects.requireNonNull(extras).getString("name");
-        String tellphone = extras.getString("tellphone");
-        String email = extras.getString("email");
-        String description = extras.getString("description");
-        String date = extras.getString("date");
+            String name = Objects.requireNonNull(extras).getString("name");
+            String tellphone = extras.getString("tellphone");
+            String email = extras.getString("email");
+            String description = extras.getString("description");
+//        String date = extras.getString("date");
             tilName.setText(name);
             tilTelephone.setText(tellphone);
             tilEmail.setText(email);
